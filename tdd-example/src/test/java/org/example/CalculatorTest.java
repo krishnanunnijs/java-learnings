@@ -3,6 +3,11 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Two methods sum and difference accepting two integers
+ * Change : Input type and return to String, add a new method than breaking tests by refactoring original method
+ *          Throw exception when input contains more than 3 decimal places
+ */
 public class CalculatorTest {
 
     @Test
@@ -14,8 +19,8 @@ public class CalculatorTest {
     @Test
     public void shouldReturnSum(){
         Calculator calculator = new Calculator();
-        int result = calculator.add(2, 3);
-        Assertions.assertEquals(5,result);
+        String result = calculator.sumOfString("1.11", "1.11");
+        Assertions.assertEquals("2.22",result);
     }
 
     @Test
