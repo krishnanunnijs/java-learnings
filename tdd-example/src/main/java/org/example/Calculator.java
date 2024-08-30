@@ -4,12 +4,15 @@ import java.math.BigDecimal;
 
 public class Calculator {
 
-    public int sum(int arg1, int arg2) {
-        return arg1 + arg2;
-    }
+    public String sum(String arg1, String arg2) {
 
-    public String sumOfString(String arg1, String arg2) {
-        return new BigDecimal(arg1).add(new BigDecimal(arg2)).toString();
+        final BigDecimal argument1 = new BigDecimal(arg1);
+        final BigDecimal argument2 = new BigDecimal(arg2);
+        if(argument1.scale() > 2 || argument2.scale() > 2 ){
+            throw new IllegalArgumentException("Three decimal places are not allowed!");
+        }
+
+        return argument1.add(argument2).toString();
     }
 
 

@@ -17,10 +17,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnSum(){
+    public void shouldReturnSum() {
         Calculator calculator = new Calculator();
-        String result = calculator.sumOfString("1.11", "1.11");
+        String result = calculator.sum("1.11", "1.11");
         Assertions.assertEquals("2.22",result);
+    }
+
+    @Test
+    public void shouldThrowExceptionWithThreeDecimalPlaces(){
+        Calculator calculator = new Calculator();
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> calculator.sum("1.111", "1.111"));
+        Assertions.assertEquals("Three decimal places are not allowed!",exception.getMessage());
     }
 
     @Test
